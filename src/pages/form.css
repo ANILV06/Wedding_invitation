@@ -1,0 +1,177 @@
+.reveal-p {
+      font-style: italic;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+}  
+
+#rsvp-section {
+    padding: 5rem 80px 1.5rem;
+    background: var(--cream);
+       border-radius: 50px;
+  border:1px solid var(--border);
+        box-shadow: var(--shadow-warm);
+}
+
+.form-card {
+    background: var(--white);
+    width: 500px;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 24px rgba(92, 34, 51, 0.05);
+}
+
+.form-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 0.35rem;
+}
+
+.field-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.field-group {
+    margin-bottom: 1.25rem;
+}
+
+.field-input {
+    width: 100%;
+    background: var(--cream);
+    border: 0;
+    border-bottom: 1.5px solid var(--border);
+    padding: 0.6rem 0.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+
+
+.form-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 0.35rem;
+}
+
+.form-card-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.text-area {
+    width: 100%;
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.85rem 1rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    resize: none;
+    transition: border-color 0.2s ease;
+    line-height: 1.5;
+}
+
+.memory-p{
+        font-size: 0.8rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 0.6rem;
+}
+
+
+.submit-btn {
+    width: 100%;
+    background: var(--terracotta);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 1.1rem;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 24px rgba(184, 89, 64, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-result {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+       font-size: 1.0rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 0.35rem;
+    margin-top: 1.75rem;
+}
+
+@media (max-width: 768px) {
+
+  #rsvp-section {
+    padding: 2rem 15px 1rem;
+    border-radius: 25px;
+  }
+
+  .form-card {
+    width: 100%;          /* ✅ fixes overflow */
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+
+  .form-card-title {
+    font-size: 1.1rem;
+  }
+
+  .form-card-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .field-input {
+    font-size: 0.95rem;
+  }
+
+  .text-area {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .submit-btn {
+    padding: 0.9rem;
+    font-size: 0.65rem;
+  }
+
+  .reveal-p {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .memory-p {
+    font-size: 0.7rem;
+  }
+
+  .form-result {
+    font-size: 0.9rem;
+  }
+}

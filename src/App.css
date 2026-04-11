@@ -1,0 +1,287 @@
+#audio-btn {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 12px;
+    z-index: 900;
+    box-shadow: 0 4px 20px rgba(184, 89, 64, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.overlay-text {
+  position: relative;
+  z-index: 2;   /* 🔥 bring text above video */
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  border-radius: 2px solid white;
+}
+
+.overlay-text{
+  cursor: pointer;
+}
+
+#entry-gate video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;   /* 🔥 keep video behind text */
+}
+/* ================= ENTRY VIDEO ================= */
+
+#entry-gate {
+  position: fixed;
+  inset: 0;
+  background: #0a0505;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition: opacity 0.8s ease;
+}
+
+#entry-gate video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ================= MAIN CONTAINER ================= */
+
+.main-container {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ================= BACKGROUND VIDEO ================= */
+
+.bg-video {
+  position: absolute;   /* 🔥 FIXED for premium effect */
+  top: 0;
+  left: 0;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ================= APP ================= */
+
+.app {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* ================= COMMON SECTION STYLE ================= */
+
+.content-1,
+.content-2,
+.content-3,
+.content-4,
+.content-5,
+.content-6{
+  width: 100%;
+  padding: 60px 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  backdrop-filter: blur(6px); /* 💎 glass effect */
+}
+.content-7 {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  backdrop-filter: blur(6px); /* 💎 glass effect */
+}
+/* ================= INDIVIDUAL BACKGROUNDS ================= */
+
+.content-1 { background-color: #fdf0e8a9; }
+.content-2 { background-color: #fff8f3af; }
+.content-3 { background-color: var(--cream-2); }
+.content-4 { background-color: var(--cream); }
+.content-5 { 
+  background-color: var(--cream-2);
+  min-height: 100vh;
+}
+.content-6 { background-color: var(--cream-2); }
+.content-7 { background-color: transparent; }
+
+/* ================= ANIMATIONS ================= */
+
+/* 1️⃣ Slide Up */
+.content-1 {
+  animation: fadeUp 1.2s ease-out both;
+}
+
+/* 2️⃣ Scale */
+.content-2 {
+  animation: fadeScale 1.2s ease-out both;
+  animation-delay: 0.2s;
+}
+
+/* 3️⃣ Left */
+.content-3 {
+  animation: slideLeft 1.2s ease-out both;
+}
+
+/* 4️⃣ Right */
+.content-4 {
+  animation: slideRight 1.2s ease-out both;
+}
+
+/* 5️⃣ Zoom */
+.content-5 {
+  animation: zoomFade 1.4s ease-out both;
+}
+
+/* 6️⃣ Rotate */
+.content-6 {
+  animation: rotateFade 1.2s ease-out both;
+}
+
+/* 7️⃣ Simple Fade */
+.content-7 {
+  animation: simpleFade 1.2s ease-out both;
+}
+
+/* ================= KEYFRAMES ================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomFade {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateFade {
+  from {
+    opacity: 0;
+    transform: rotate(-3deg) translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) translateY(0);
+  }
+}
+
+@keyframes simpleFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 768px) {
+
+  /* 🔘 AUDIO BUTTON */
+  #audio-btn {
+    bottom: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+
+  #audio-btn svg {
+    width: 18px;
+  }
+
+  /* 🎥 ENTRY VIDEO TEXT (if any overlay text exists) */
+  #entry-gate {
+    padding: 10px;
+  }
+
+  /* 📦 CONTENT SECTIONS */
+  .content-1,
+  .content-2,
+  .content-3,
+  .content-4,
+  .content-5,
+  .content-6,
+  .content-7 {
+    padding: 40px 15px;
+  }
+
+  /* 🎬 BACKGROUND VIDEO */
+  .bg-video {
+    height: 100vh;
+  }
+
+  /* 📱 GENERAL IMPROVEMENT */
+  .main-container {
+    overflow-x: hidden;
+  }
+
+}

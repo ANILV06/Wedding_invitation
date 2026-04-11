@@ -1,0 +1,110 @@
+.countdown-card {
+  background: var(--white);
+  border:1px solid var(--border);
+  text-align: center;
+   padding: 50px;
+   margin-top: 50px;
+   border-radius: 50px;
+    box-shadow: var(--shadow-warm);
+    
+}
+
+.timer {
+  text-align: center;
+}
+
+.timer h2 {
+  font-size: 40px;
+}
+
+.timer div {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.countdown-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4rem;
+    font-weight: 300;
+    color: var(--text-dark);
+    line-height: 1;
+}
+
+.section-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.countdown-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+
+.countdown-quote {
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-mid);
+    margin-bottom: 0.75rem;
+}
+
+.countdown-date {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--terracotta);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
+
+
+@media (max-width: 768px) {
+
+  .countdown-card {
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 25px;
+  }
+
+  .timer h2 {
+    font-size: 28px;
+  }
+
+  .timer div {
+    font-size: 18px;
+  }
+
+  .countdown-number {
+    font-size: 2.2rem;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+  }
+
+  .countdown-quote {
+    font-size: 0.95rem;
+  }
+
+  .countdown-date {
+    font-size: 0.7rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+  }
+}

@@ -1,0 +1,100 @@
+
+.section-label {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 0.75rem;
+
+}
+
+.section-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(3rem, 10vw, 5rem);
+    line-height: 1.1;
+        color: var(--terracotta);
+}
+
+
+.memories-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 1px solid rgba(201, 150, 62, 0.35);
+    border-radius: 2rem;
+    transform: rotate(2deg);
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.memories-frame {
+    max-width: 420px;
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+
+.element {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+.memories-inner {
+    position: relative;
+    z-index: 1;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-warm);
+}
+
+.memories-inner video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 1080 / 1600;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+
+  .section-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.25em;
+  }
+
+  .section-heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .memories-frame {
+    max-width: 100%;
+    margin: 2rem auto 0;
+    padding: 0 10px;
+  }
+
+  .memories-frame::before {
+    inset: -6px;
+    border-radius: 1.2rem;
+  }
+
+  .memories-inner {
+    border-radius: 1rem;
+  }
+
+  .memories-inner video {
+    aspect-ratio: 3 / 4;   /* ✅ better fit for mobile */
+  }
+
+  .element {
+    font-size: 0.9rem;
+    margin-top: 1.2rem;
+  }
+}

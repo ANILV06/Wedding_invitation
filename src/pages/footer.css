@@ -1,0 +1,106 @@
+#footer-section {
+    background: var(--burgundy);
+    padding: 5rem 1.5rem;
+    color: white;
+    width:  100%;
+}
+
+.footer-name{
+        font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: var(--gold-light);
+    display: block;
+    line-height: 1.1;
+}
+
+.footer-heading {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.6rem;
+    color: var(--gold-light);
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.footer-list {
+    list-style: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-rsvp-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    line-height: 2;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-kids {
+    margin-top: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--gold-light);
+}
+.p-style {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+.foot-line{
+        opacity: 0.4;
+    height: 1px;
+    width: 120px;
+    background: var(--gold-light);
+    margin: 0 auto 2rem;
+
+}
+
+.footer-endnote {
+    grid-column: 1 / -1;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 2.5rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+  #footer-section {
+    padding: 3rem 1rem;
+  }
+
+  .footer-name {
+    font-size: 2.5rem;
+  }
+
+  .footer-heading {
+    font-size: 1.8rem;
+  }
+
+  .footer-list,
+  .footer-rsvp-names {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .footer-kids {
+    font-size: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .p-style {
+    font-size: 0.8rem;
+  }
+
+  .foot-line {
+    width: 80px;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-endnote {
+    padding-top: 1.5rem;
+  }
+}
