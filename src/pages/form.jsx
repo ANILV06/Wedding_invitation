@@ -56,6 +56,7 @@ export default function Form(){
             </div>
 
             <div className="form-card reveal reveal-delay-3 revealed">
+                
                 <p className="form-card-title">Words for Forever</p>
                 <p className="form-card-subtitle">Advice for married life.</p>
                 <textarea className="text-area" name="advice_for_forever" rows="3" placeholder="One piece of advice..."></textarea>

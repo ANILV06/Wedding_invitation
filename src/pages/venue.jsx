@@ -21,7 +21,7 @@ return(
                     
                 </p>
                
-                <a className="directions-btn" href="https://maps.app.goo.gl/f4VV5kk7cBgNVnrd8" target="_blank">Get Directions</a>
+                <a className="directions-btn" href="https://maps.app.goo.gl/f4VV5kk7cBgNVnrd8" target="_blank" rel="noreferrer">Get Directions</a>
             </div>
         </div>
         </div>
