@@ -78,7 +78,6 @@ function App() {
       {/* ENTRY VIDEO */}
       {!showMain && (
         <div id="entry-gate" onClick={handleClick}>
-          <p className="overlay-text">Tap to Play <code><br></br></code>▶</p>
           <video
             ref={videoRef}
             playsInline
@@ -87,7 +86,7 @@ function App() {
             className="entry-video"
           >
             <source
-              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1775903686/AY_2_dgz91u.mp4"
+              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1776072706/AY_fdhr6h.mp4"
               type="video/mp4"
             />
           </video>

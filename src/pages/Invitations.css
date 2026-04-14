@@ -40,33 +40,3 @@
     margin: 0 auto 4rem;
 }
 
-@media (max-width: 768px) {
-
-  .event-subtitle {
-    font-size: 16px;
-    letter-spacing: 0.2em;
-  }
-
-  .event-title {
-    font-size: 2rem;
-  }
-
-  .event-block {
-    max-width: 100%;
-    margin: 0 auto 2.5rem;
-    padding: 0 10px;
-  }
-
-  .event-video-wrap video {
-    max-height: 300px;   /* ✅ prevents overflow */
-    border-radius: 1rem;
-  }
-
-  .event-video-wrap.unlocked {
-    max-height: 500px;
-  }
-
-  .ornament-line svg {
-    width: 20px;
-  }
-}
