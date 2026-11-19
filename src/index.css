@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,20 +14,33 @@ code {
 }
 
 :root {
-    --cream: #FFF8F3;
-    --cream-2: #FDF0E8;
-    --terracotta: #B85940;
-    --terra-dark: #8B3E28;
-    --terra-light: #D4806A;
-    --gold: #C9963E;
-    --gold-light: #E8C07A;
-    --gold-pale: #F5E4C0;
-    --burgundy: #5C2233;
-    --text-dark: #2E1810;
-    --text-mid: #6B4535;
-    --text-light: #9E7060;
-    --border: #EEDDD3;
-    --white: #FFFFFF;
-    --shadow-warm: 0 20px 60px -10px rgba(92, 34, 51, 0.12);
-    --shadow-gold: 0 4px 24px rgba(201, 150, 62, 0.18);
+    /* Elegant Ivory and Sage Wedding Theme */
+    --cream: #F8F3E9;
+    --cream-2: #F1E9DC;
+
+    /* Sage Green */
+    --terracotta: #74816A;
+    --terra-dark: #526148;
+    --terra-light: #A5AD91;
+
+    /* Champagne Gold */
+    --gold: #B8955A;
+    --gold-light: #D8BD8A;
+    --gold-pale: #F0E4CC;
+
+    /* Dusty Rose */
+    --burgundy: #A87578;
+
+    /* Typography */
+    --text-dark: #3F3931;
+    --text-mid: #6F675B;
+    --text-light: #958779;
+
+    /* Borders and surfaces */
+    --border: #E5DCCB;
+    --white: #FFFCF7;
+
+    /* Shadows */
+    --shadow-warm: 0 20px 60px -10px rgba(63, 57, 49, 0.12);
+    --shadow-gold: 0 4px 24px rgba(184, 149, 90, 0.18);
 }
