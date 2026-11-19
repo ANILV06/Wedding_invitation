@@ -13,7 +13,7 @@ return(
             <div class="memories-frame reveal reveal-delay-2 revealed">
             <div class="memories-inner">
                 <video autoPlay loop muted playsInline> 
-                    <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1775908019/Glimps_xaw4ix.mp4" type="video/mp4" />
+                    <source src="https://player.cloudinary.com/embed/?cloud_name=dwtzcpmzo&public_id=kavya_vrku7e" type="video/mp4" />
                 </video>
             </div>
            
@@ -29,3 +29,5 @@ return(
 }
 
 export default Glimps;
+
+
