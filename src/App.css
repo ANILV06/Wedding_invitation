@@ -384,6 +384,202 @@
     }
 }
 
+
+
+
+/* MAIN WEBSITE WRAPPER */
+
+.main-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* BACKGROUND VIDEO */
+
+.bg-video {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* CONTENT ABOVE BACKGROUND */
+
+.App {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content-1,
+.content-2,
+.content-3,
+.content-4,
+.content-5,
+.content-6,
+.content-7 {
+    position: relative;
+    width: 100%;
+}
+
+/* OPENING VIDEO SCREEN */
+
+#entry-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a0d08;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.entry-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #1a0d08;
+}
+
+/* AUDIO CONTROL */
+
+#audio-btn {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 10000;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    border: 1px solid var(--gold-light);
+    border-radius: 50%;
+    background: var(--terra-dark);
+    color: var(--gold-pale);
+    box-shadow: var(--shadow-gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#audio-btn svg {
+    width: 23px;
+    height: 23px;
+}
+
+#audio-btn:hover {
+    background: var(--gold);
+    color: white;
+    transform: scale(1.08);
+}
+
+/* MUSIC FALLBACK BUTTON */
+
+.music-fallback {
+    position: fixed;
+    right: 25px;
+    bottom: 85px;
+    z-index: 10000;
+    padding: 12px 18px;
+    border: 1px solid var(--gold-light);
+    border-radius: 30px;
+    background: var(--terra-dark);
+    color: white;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-gold);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.music-fallback:hover {
+    background: var(--gold);
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+    #audio-btn {
+        right: 18px;
+        bottom: 18px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .music-fallback {
+        right: 18px;
+        bottom: 72px;
+    }
+}
+
+/* IPHONE / MOBILE SAFARI */
+
+@media (max-width: 600px) {
+    #entry-gate {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    .entry-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .bg-video {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    #audio-btn {
+        right: 15px;
+        bottom: 15px;
+        width: 42px;
+        height: 42px;
+        padding: 10px;
+    }
+
+    .music-fallback {
+        right: 15px;
+        bottom: 68px;
+        font-size: 11px;
+    }
+}
+
+/* SMALL IPHONES */
+
+@media (max-width: 360px) {
+    #audio-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .music-fallback {
+        padding: 10px 14px;
+    }
+}
+
 /* ================= REDUCED MOTION ================= */
 
 @media (prefers-reduced-motion: reduce) {
