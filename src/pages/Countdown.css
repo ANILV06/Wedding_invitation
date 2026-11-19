@@ -108,3 +108,141 @@
     letter-spacing: 0.25em;
   }
 }
+
+
+
+/* ROYAL COUNTDOWN DECORATIONS */
+
+.countdown-card {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* TOP ORNAMENT */
+
+.countdown-top-ornament {
+    color: var(--gold);
+    font-size: 23px;
+    letter-spacing: 9px;
+    margin-bottom: 15px;
+}
+
+/* HEADING DIVIDER */
+
+.countdown-heading-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    margin: 18px auto 25px;
+}
+
+.countdown-heading-divider span {
+    width: 55px;
+    height: 1px;
+    background: var(--gold-light);
+}
+
+.countdown-heading-divider b {
+    color: var(--gold);
+    font-size: 22px;
+    font-weight: 400;
+}
+
+/* QUOTE */
+
+.countdown-quote {
+    color: var(--text-mid);
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+    letter-spacing: 0.5px;
+}
+
+/* DATE */
+
+.countdown-date {
+    color: var(--terra-dark);
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 22px 0;
+}
+
+/* COUNTDOWN DISPLAY */
+
+.countdown-display {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 25px auto 12px;
+}
+
+.countdown-number {
+    color: var(--terra-dark);
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+}
+
+/* COUNTDOWN LABELS */
+
+.countdown-label {
+    color: var(--gold);
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 12px;
+}
+
+.countdown-label span {
+    color: var(--gold-light);
+}
+
+/* BOTTOM ORNAMENT */
+
+.countdown-bottom-ornament {
+    color: var(--gold);
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1.5px;
+    margin-top: 35px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .countdown-top-ornament {
+        font-size: 19px;
+    }
+
+    .countdown-quote {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .countdown-date {
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .countdown-number {
+        font-size: clamp(1.5rem, 7vw, 2.5rem);
+        letter-spacing: 1px;
+    }
+
+    .countdown-label {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .countdown-bottom-ornament {
+        font-size: 10px;
+    }
+}
