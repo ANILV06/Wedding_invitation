@@ -199,3 +199,227 @@
         width: 25px;
     }
 }
+
+
+/* ROYAL HERO DECORATIONS */
+
+.hero-main {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-royal-frame {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    padding: 35px 24px 30px;
+    border: 1px solid var(--gold);
+    border-radius: 38px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 252, 247, 0.97),
+            rgba(248, 243, 233, 0.96)
+        );
+    box-shadow:
+        inset 0 0 0 6px rgba(184, 149, 90, 0.07),
+        inset 0 0 0 7px rgba(184, 149, 90, 0.20),
+        var(--shadow-warm);
+}
+
+/* Decorative corner flourishes */
+
+.hero-corner {
+    position: absolute;
+    color: var(--gold);
+    font-family: serif;
+    font-size: 42px;
+    line-height: 1;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.hero-corner-tl {
+    top: 12px;
+    left: 16px;
+}
+
+.hero-corner-tr {
+    top: 12px;
+    right: 16px;
+    transform: scaleX(-1);
+}
+
+.hero-corner-bl {
+    bottom: 12px;
+    left: 16px;
+    transform: rotate(180deg);
+}
+
+.hero-corner-br {
+    bottom: 12px;
+    right: 16px;
+    transform: rotate(180deg) scaleX(-1);
+}
+
+/* Top gold ornament */
+
+.hero-top-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 0 auto 18px;
+    max-width: 180px;
+}
+
+.hero-top-ornament span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold)
+    );
+}
+
+.hero-top-ornament span:last-child {
+    transform: rotate(180deg);
+}
+
+.hero-ornament-diamond {
+    color: var(--gold);
+    font-size: 19px;
+    line-height: 1;
+}
+
+/* Ganesh icon */
+
+.ganesh-icon {
+    display: block;
+    width: 76px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 3px 5px rgba(184, 149, 90, 0.18));
+}
+
+/* Name separator */
+
+.ampersand-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 22px auto;
+}
+
+.ampersand-line {
+    width: 65px;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+.ampersand {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+}
+
+/* Bottom ornament */
+
+.hero-bottom-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 28px auto 18px;
+    max-width: 130px;
+    color: var(--gold);
+}
+
+.hero-bottom-ornament div {
+    width: 55px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.65;
+}
+
+.hero-bottom-ornament span {
+    font-size: 13px;
+}
+
+/* Scroll cue */
+
+.scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: var(--terra-dark);
+}
+
+.scroll-cue svg {
+    width: 20px;
+    height: 20px;
+    animation: heroScroll 1.6s ease-in-out infinite;
+}
+
+@keyframes heroScroll {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(6px);
+    }
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 600px) {
+    .hero-royal-frame {
+        padding: 28px 17px 24px;
+        border-radius: 27px;
+    }
+
+    .hero-corner {
+        font-size: 30px;
+    }
+
+    .hero-corner-tl,
+    .hero-corner-bl {
+        left: 9px;
+    }
+
+    .hero-corner-tr,
+    .hero-corner-br {
+        right: 9px;
+    }
+
+    .ganesh-icon {
+        width: 65px;
+        margin-bottom: 14px;
+    }
+
+    .hero-top-ornament {
+        margin-bottom: 14px;
+    }
+
+    .ampersand-wrap {
+        margin: 17px auto;
+    }
+
+    .ampersand-line {
+        width: 42px;
+    }
+
+    .hero-bottom-ornament {
+        margin: 22px auto 14px;
+    }
+}
+
