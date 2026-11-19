@@ -437,3 +437,103 @@
         animation-delay: 0ms;
     }
 }
+
+
+
+
+
+
+
+/* iPhone opening video messages */
+
+.entry-loading,
+.entry-error {
+    position: absolute;
+    z-index: 3;
+    left: 50%;
+    bottom: calc(105px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: 90%;
+    color: white;
+    text-align: center;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 14px;
+}
+
+.entry-retry,
+.entry-skip {
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    border: 1px solid var(--gold-light);
+    border-radius: 30px;
+    background: var(--terra-dark);
+    color: white;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.entry-retry {
+    bottom: calc(85px + env(safe-area-inset-bottom));
+}
+
+.entry-skip {
+    bottom: calc(25px + env(safe-area-inset-bottom));
+}
+
+/* iPhone Safari safe areas */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+#entry-gate {
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: #1a0d08;
+}
+
+.entry-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    background: #1a0d08;
+}
+
+@media (max-width: 600px) {
+    .main-container,
+    .App {
+        width: 100%;
+        overflow-x: clip;
+    }
+
+    .content-1,
+    .content-2,
+    .content-3,
+    .content-4,
+    .content-5,
+    .content-6,
+    .content-7 {
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
