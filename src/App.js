@@ -1,3 +1,4 @@
+
 import { useRef, useState } from "react";
 import video from "./bg.mp4";
 
@@ -15,61 +16,118 @@ function App() {
 
   const [showMain, setShowMain] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [audioNeedsTap, setAudioNeedsTap] = useState(false);
+  const [entryStarted, setEntryStarted] = useState(false);
 
-  const handleClick = () => {
+  // Start entry video after user interaction
+  const handleClick = async () => {
     const vid = videoRef.current;
 
-    if (vid) {
+    if (!vid || entryStarted) return;
+
+    setEntryStarted(true);
+
+    try {
       vid.muted = false;
-      vid.play();
-
-      vid.onended = () => {
-        setShowMain(true);
-
-        // 🔥 start music after video ends
-        audioRef.current.play();
-        setIsPlaying(true);
-      };
+      await vid.play();
+    } catch (error) {
+      console.log("Entry video playback failed:", error);
+      setShowMain(true);
     }
   };
 
-  const toggleAudio = () => {
+  // When entry video finishes
+  const handleVideoEnd = async () => {
+    setShowMain(true);
+
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    try {
+      await audio.play();
+      setIsPlaying(true);
+      setAudioNeedsTap(false);
+    } catch (error) {
+      console.log("Audio autoplay blocked:", error);
+      setIsPlaying(false);
+      setAudioNeedsTap(true);
+    }
+  };
+
+  // If entry video fails, allow invitation to open
+  const handleVideoError = () => {
+    setShowMain(true);
+    setAudioNeedsTap(true);
+  };
+
+  // Audio button
+  const toggleAudio = async () => {
     const audio = audioRef.current;
 
     if (!audio) return;
 
     if (isPlaying) {
       audio.pause();
-    } else {
-      audio.play();
+      setIsPlaying(false);
+      return;
     }
 
-    setIsPlaying(!isPlaying);
+    try {
+      await audio.play();
+      setIsPlaying(true);
+      setAudioNeedsTap(false);
+    } catch (error) {
+      console.log("Audio playback failed:", error);
+      setIsPlaying(false);
+      setAudioNeedsTap(true);
+    }
   };
 
   return (
     <section>
 
-      {/* ✅ AUDIO */}
-      <audio ref={audioRef} loop preload="metadata">
+      {/* AUDIO */}
+      <audio ref={audioRef} loop preload="none">
         <source
           src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/Ashish%20%26%20Ayushi/Jashn-E-Bahaaraa%20(Instrumental%20-%20Flute)%20%5B-2w18bd-ZQ4%5D.mp3"
           type="audio/mpeg"
         />
       </audio>
 
-      {/* ✅ AUDIO BUTTON */}
+      {/* AUDIO BUTTON */}
       {showMain && (
-        <button id="audio-btn" onClick={toggleAudio}>
+        <button
+          id="audio-btn"
+          onClick={toggleAudio}
+          aria-label={isPlaying ? "Pause music" : "Play music"}
+          type="button"
+        >
           {isPlaying ? (
-            <svg fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round"
-                d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 5L6 9H2v6h4l5 4V5zM19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"
+              />
             </svg>
           ) : (
-            <svg fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round"
-                d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" />
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"
+              />
             </svg>
           )}
         </button>
@@ -77,21 +135,32 @@ function App() {
 
       {/* ENTRY VIDEO */}
       {!showMain && (
-        <div id="entry-gate" onClick={handleClick}>
+        <div
+          id="entry-gate"
+          onClick={handleClick}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              handleClick();
+            }
+          }}
+        >
           <video
             ref={videoRef}
             playsInline
-            preload="auto"
+            webkit-playsinline="true"
+            preload="metadata"
             muted
             className="entry-video"
+            onEnded={handleVideoEnd}
+            onError={handleVideoError}
           >
             <source
               src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1776072706/AY_fdhr6h.mp4"
               type="video/mp4"
             />
           </video>
-
-          
         </div>
       )}
 
@@ -99,7 +168,15 @@ function App() {
       {showMain && (
         <section className="main-container">
 
-          <video className="bg-video" autoPlay loop muted>
+          <video
+            className="bg-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+            webkit-playsinline="true"
+            preload="metadata"
+          >
             <source src={video} type="video/mp4" />
           </video>
 
@@ -112,6 +189,17 @@ function App() {
             <div className="content-6"><Form /></div>
             <div className="content-7"><Footer /></div>
           </div>
+
+          {/* Show only if iPhone blocks automatic music */}
+          {audioNeedsTap && (
+            <button
+              type="button"
+              onClick={toggleAudio}
+              className="music-fallback"
+            >
+              Tap to play music
+            </button>
+          )}
 
         </section>
       )}
