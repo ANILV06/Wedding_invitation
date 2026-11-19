@@ -21,6 +21,8 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioNeedsTap, setAudioNeedsTap] = useState(false);
   const [entryStarted, setEntryStarted] = useState(false);
+  const [videoLoading, setVideoLoading] = useState(true);
+  const [videoFailed, setVideoFailed] = useState(false);
 
   // Start opening video after visitor interaction
   const handleClick = async () => {
@@ -29,25 +31,34 @@ function App() {
     if (!vid || entryStarted) return;
 
     setEntryStarted(true);
+    setVideoLoading(true);
+    setVideoFailed(false);
 
     try {
-      // Muted playback is more reliable on iPhone Safari
+      // iPhone Safari compatible muted inline playback
       vid.muted = true;
       vid.playsInline = true;
 
       await vid.play();
-
     } catch (error) {
       console.error("Opening video playback failed:", error);
 
-      // Allow visitor to try again
       setEntryStarted(false);
+      setVideoLoading(false);
+      setVideoFailed(true);
     }
+  };
+
+  // Video is ready to play
+  const handleVideoReady = () => {
+    setVideoLoading(false);
+    setVideoFailed(false);
   };
 
   // When opening video finishes
   const handleVideoEnd = async () => {
     setShowMain(true);
+    setVideoLoading(false);
 
     const audio = audioRef.current;
 
@@ -57,7 +68,6 @@ function App() {
       await audio.play();
       setIsPlaying(true);
       setAudioNeedsTap(false);
-
     } catch (error) {
       console.log("Audio autoplay blocked:", error);
       setIsPlaying(false);
@@ -65,7 +75,7 @@ function App() {
     }
   };
 
-  // If opening video has a loading or decoding error
+  // Opening video error
   const handleVideoError = () => {
     const vid = videoRef.current;
 
@@ -75,9 +85,31 @@ function App() {
       vid?.error?.message
     );
 
-    // Fallback to the main website
+    setVideoLoading(false);
+    setVideoFailed(true);
+    setEntryStarted(false);
+  };
+
+  // Enter website if opening video is unavailable
+  const enterWebsite = () => {
     setShowMain(true);
+    setVideoLoading(false);
     setAudioNeedsTap(true);
+  };
+
+  // Retry opening video
+  const retryVideo = (event) => {
+    event.stopPropagation();
+
+    const vid = videoRef.current;
+
+    if (!vid) return;
+
+    setVideoFailed(false);
+    setVideoLoading(true);
+    setEntryStarted(false);
+
+    vid.load();
   };
 
   // Play or pause background music
@@ -96,7 +128,6 @@ function App() {
       await audio.play();
       setIsPlaying(true);
       setAudioNeedsTap(false);
-
     } catch (error) {
       console.log("Audio playback failed:", error);
       setIsPlaying(false);
@@ -175,6 +206,8 @@ function App() {
             preload="auto"
             muted
             controls={false}
+            onLoadedData={handleVideoReady}
+            onCanPlay={handleVideoReady}
             onEnded={handleVideoEnd}
             onError={handleVideoError}
           >
@@ -183,6 +216,43 @@ function App() {
               type="video/mp4"
             />
           </video>
+
+          {/* VIDEO LOADING MESSAGE */}
+          {videoLoading && !videoFailed && (
+            <div className="entry-loading">
+              Preparing your invitation...
+            </div>
+          )}
+
+          {/* VIDEO ERROR MESSAGE */}
+          {videoFailed && (
+            <div className="entry-error">
+              Opening video unavailable. You can still enter.
+            </div>
+          )}
+
+          {/* RETRY BUTTON */}
+          {videoFailed && (
+            <button
+              type="button"
+              className="entry-retry"
+              onClick={retryVideo}
+            >
+              Retry Video
+            </button>
+          )}
+
+          {/* ENTER WEBSITE BUTTON */}
+          <button
+            type="button"
+            className="entry-skip"
+            onClick={(e) => {
+              e.stopPropagation();
+              enterWebsite();
+            }}
+          >
+            Enter Invitation
+          </button>
         </div>
       )}
 
