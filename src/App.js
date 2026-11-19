@@ -19,7 +19,7 @@ function App() {
   const [audioNeedsTap, setAudioNeedsTap] = useState(false);
   const [entryStarted, setEntryStarted] = useState(false);
 
-  // Start entry video after user interaction
+  // Start entry video after visitor interaction
   const handleClick = async () => {
     const vid = videoRef.current;
 
@@ -33,6 +33,7 @@ function App() {
     } catch (error) {
       console.log("Entry video playback failed:", error);
       setShowMain(true);
+      setAudioNeedsTap(true);
     }
   };
 
@@ -55,13 +56,13 @@ function App() {
     }
   };
 
-  // If entry video fails, allow invitation to open
+  // If entry video fails
   const handleVideoError = () => {
     setShowMain(true);
     setAudioNeedsTap(true);
   };
 
-  // Audio button
+  // Play or pause background music
   const toggleAudio = async () => {
     const audio = audioRef.current;
 
@@ -87,7 +88,7 @@ function App() {
   return (
     <section>
 
-      {/* AUDIO */}
+      {/* BACKGROUND MUSIC */}
       <audio ref={audioRef} loop preload="none">
         <source
           src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/Ashish%20%26%20Ayushi/Jashn-E-Bahaaraa%20(Instrumental%20-%20Flute)%20%5B-2w18bd-ZQ4%5D.mp3"
@@ -95,7 +96,7 @@ function App() {
         />
       </audio>
 
-      {/* AUDIO BUTTON */}
+      {/* MUSIC CONTROL BUTTON */}
       {showMain && (
         <button
           id="audio-btn"
@@ -133,15 +134,17 @@ function App() {
         </button>
       )}
 
-      {/* ENTRY VIDEO */}
+      {/* OPENING VIDEO */}
       {!showMain && (
         <div
           id="entry-gate"
           onClick={handleClick}
           role="button"
           tabIndex={0}
+          aria-label="Tap to open wedding invitation"
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
               handleClick();
             }
           }}
@@ -149,7 +152,6 @@ function App() {
           <video
             ref={videoRef}
             playsInline
-            webkit-playsinline="true"
             preload="metadata"
             muted
             className="entry-video"
@@ -157,7 +159,7 @@ function App() {
             onError={handleVideoError}
           >
             <source
-              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1776072706/AY_fdhr6h.mp4"
+              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795088390/mk_ygr1mj.mp4"
               type="video/mp4"
             />
           </video>
@@ -168,18 +170,19 @@ function App() {
       {showMain && (
         <section className="main-container">
 
+          {/* BACKGROUND VIDEO */}
           <video
             className="bg-video"
             autoPlay
             loop
             muted
             playsInline
-            webkit-playsinline="true"
             preload="metadata"
           >
             <source src={video} type="video/mp4" />
           </video>
 
+          {/* WEBSITE SECTIONS */}
           <div className="App">
             <div className="content-1"><Hero /></div>
             <div className="content-2"><Timer /></div>
@@ -190,14 +193,14 @@ function App() {
             <div className="content-7"><Footer /></div>
           </div>
 
-          {/* Show only if iPhone blocks automatic music */}
+          {/* AUDIO FALLBACK */}
           {audioNeedsTap && (
             <button
               type="button"
               onClick={toggleAudio}
               className="music-fallback"
             >
-              Tap to play music
+              Tap to play music ♫
             </button>
           )}
 
