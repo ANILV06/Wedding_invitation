@@ -1,95 +1,94 @@
 
 import '../index.css';
-import './Invitations.css';
+import './Invitations.css'
 
-function Invite() {
-    const events = [
-        {
-            title: "Reception",
-            subtitle: "A Celebration of Togetherness",
-            video: "https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795075727/Receptation_rabxcl.mp4"
-        },
-        {
-            title: "Muhurtha",
-            subtitle: "The Sacred Wedding Ceremony",
-            video: "https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795075727/muhurtha_rahfwy.mp4"
-        },
-        {
-            title: "Beegara Oota",
-            subtitle: "A Feast of Love and Blessings",
-            video: "https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795076460/beegara_oota_snfwn9.mp4"
-        }
-    ];
+function Invite(){
+    return(
+        <div className="invite-card">
 
-    return (
-        <section className="invite-section">
-            <div className="invite-card">
-
-                <div className="invite-heading">
-                    <span className="invite-ornament">✦</span>
-                    <span className="section-label">
-                        The Celebration Unfolds
-                    </span>
-                    <h2 className="invite-main-title">
-                        Moments to Cherish
-                    </h2>
-                    <div className="invite-heading-divider">
-                        <span></span>
-                        <b>❧</b>
-                        <span></span>
-                    </div>
-                </div>
-
-                <div className="invite-events">
-                    {events.map((event, index) => (
-                        <div
-                            className="event-block reveal revealed"
-                            key={event.title}
-                        >
-                            <div className="event-title-wrap">
-                                <span className="event-number">
-                                    0{index + 1}
-                                </span>
-
-                                <h3 className="event-title">
-                                    {event.title}
-                                </h3>
-
-                                <p className="event-subtitle">
-                                    {event.subtitle}
-                                </p>
-
-                                <span className="event-title-ornament">
-                                    ✧
-                                </span>
-                            </div>
-
-                            <div className="event-video-wrap unlocked">
-                                <video
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    preload="metadata"
-                                >
-                                    <source
-                                        src={event.video}
-                                        type="video/mp4"
-                                    />
-                                    Your browser does not support video playback.
-                                </video>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="invite-bottom-ornament">
-                    ❧ &nbsp; With love, joy and blessings &nbsp; ❧
-                </div>
-
+            <div className="invite-top-ornament">
+                ✦ ❧ ✦
             </div>
-        </section>
-    );
+
+            <span className="section-label">
+                The Celebration Unfolds
+            </span>
+
+            <div className="invite-heading-decoration">
+                <span></span>
+                <b>❦</b>
+                <span></span>
+            </div>
+
+            {/* ----------------- */}
+            <div className="event-block reveal revealed">
+
+                <div className="text-center mb-4">
+                    <span className="event-royal-number">I</span>
+                    {/* <p className="event-subtitle">Ceremony I</p> */}
+                    <h3 className="event-title">Reception</h3>
+                    <span className="event-title-decoration">✧</span>
+                </div>
+
+                <div className="event-video-wrap unlocked">
+                    <span className="video-corner video-corner-tl">❧</span>
+                    <span className="video-corner video-corner-tr">❧</span>
+                    <video autoPlay muted loop playsInline>
+                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795075727/Receptation_rabxcl.mp4" type="video/mp4" />
+                    </video>
+                    <span className="video-corner video-corner-bl">❧</span>
+                    <span className="video-corner video-corner-br">❧</span>
+                </div>
+            </div>
+
+            {/* ----------------- */}
+            <div className="event-block reveal revealed">
+
+                <div className="text-center mb-4">
+                    <span className="event-royal-number">II</span>
+                    {/* <p className="event-subtitle">Ceremony II</p> */}
+                    <h3 className="event-title">Muhurtha</h3>
+                    <span className="event-title-decoration">✧</span>
+                </div>
+
+                <div className="event-video-wrap unlocked">
+                    <span className="video-corner video-corner-tl">❧</span>
+                    <span className="video-corner video-corner-tr">❧</span>
+                    <video autoPlay muted loop playsInline>
+                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795075727/muhurtha_rahfwy.mp4" type="video/mp4" />
+                    </video>
+                    <span className="video-corner video-corner-bl">❧</span>
+                    <span className="video-corner video-corner-br">❧</span>
+                </div>
+            </div>
+
+            {/* ----------------- */}
+            <div className="event-block reveal revealed">
+
+                <div className="text-center mb-4">
+                    <span className="event-royal-number">III</span>
+                    {/* <p className="event-subtitle">Ceremony I</p> */}
+                    <h3 className="event-title">Beegara Oota</h3>
+                    <span className="event-title-decoration">✧</span>
+                </div>
+
+                <div className="event-video-wrap unlocked">
+                    <span className="video-corner video-corner-tl">❧</span>
+                    <span className="video-corner video-corner-tr">❧</span>
+                    <video autoPlay muted loop playsInline>
+                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795076460/beegara_oota_snfwn9.mp4" type="video/mp4" />
+                    </video>
+                    <span className="video-corner video-corner-bl">❧</span>
+                    <span className="video-corner video-corner-br">❧</span>
+                </div>
+            </div>
+
+            <div className="invite-bottom-ornament">
+                ❧ &nbsp; With Love & Blessings &nbsp; ❧
+            </div>
+
+        </div>
+    )
 }
 
 export default Invite;
