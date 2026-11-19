@@ -595,3 +595,26 @@
         animation-delay: 0ms;
     }
 }
+
+
+
+
+
+
+
+.fall-container {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.App {
+    position: relative;
+    z-index: 1;
+}
+
+#audio-btn,
+.music-fallback {
+    z-index: 10;
+}
