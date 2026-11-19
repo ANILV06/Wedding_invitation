@@ -1,274 +1,140 @@
 
-/* INVITATIONS SECTION */
+/* EVENT DECORATIONS */
 
-.invite-section {
-    width: 100%;
-    padding: 90px 20px;
-    background: var(--cream);
-    overflow: hidden;
-    box-sizing: border-box;
-}
-
-.invite-section *,
-.invite-section *::before,
-.invite-section *::after {
-    box-sizing: border-box;
-}
-
-.invite-card {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 65px 45px;
-    background: var(--white);
-    border: 1px solid var(--border);
-    outline: 1px solid rgba(184, 149, 90, 0.35);
-    outline-offset: -9px;
-    box-shadow: var(--shadow-warm);
-}
-
-/* HEADING */
-
-.invite-heading {
-    text-align: center;
-    margin-bottom: 65px;
-}
-
-.invite-ornament {
-    display: block;
+.ornament-line svg {
     color: var(--gold);
-    font-size: 23px;
-    margin-bottom: 14px;
-}
-
-.section-label {
-    display: block;
-    color: var(--terra-dark);
-    font-family: inherit;
-    font-size: 12px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
-}
-
-.invite-main-title {
-    color: var(--text-dark);
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.8rem, 6vw, 4.5rem);
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 0;
-}
-
-.invite-heading-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.invite-heading-divider span {
-    width: 65px;
-    height: 1px;
-    background: var(--gold);
-}
-
-.invite-heading-divider b {
-    color: var(--gold);
-    font-size: 22px;
-    font-weight: 400;
-}
-
-/* EVENT LAYOUT */
-
-.invite-events {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 55px 35px;
-}
-
-.event-block {
-    min-width: 0;
-    text-align: center;
-}
-
-.event-block:last-child {
-    grid-column: 1 / -1;
-    width: min(100%, 650px);
-    justify-self: center;
-}
-
-/* EVENT TITLES */
-
-.event-title-wrap {
-    position: relative;
-    padding: 0 10px 20px;
-}
-
-.event-number {
-    display: block;
-    color: var(--gold);
-    font-family: Georgia, serif;
-    font-size: 12px;
-    letter-spacing: 3px;
-    margin-bottom: 8px;
-}
-
-.event-title {
-    color: var(--terra-dark);
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(2.2rem, 4vw, 3rem);
-    font-weight: 400;
-    line-height: 1.2;
-    margin: 0 0 7px;
 }
 
 .event-subtitle {
-    color: var(--text-light);
-    font-family: Georgia, serif;
+    font-family: 'Tenor Sans', sans-serif;
     font-size: 12px;
-    font-style: italic;
-    letter-spacing: 1px;
-    margin: 0;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
 }
 
-.event-title-ornament {
-    display: block;
-    color: var(--gold);
-    font-size: 17px;
-    margin-top: 10px;
+.event-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8rem;
+    color: var(--terracotta);
+    margin-bottom: 0.15rem;
+    font-weight: 400;
+}
+
+/* EVENT BLOCK */
+
+.event-block {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 4rem;
 }
 
 /* VIDEO FRAME */
 
-.event-video-wrap {
-    position: relative;
+.event-video-wrap.unlocked {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    max-height: none;
+    height: auto;
+    position: relative;
     padding: 7px;
-    background: var(--cream-2);
     border: 1px solid var(--gold);
+    border-radius: 1.7rem;
+    background: var(--cream-2);
     box-shadow: var(--shadow-gold);
     overflow: hidden;
 }
 
-.event-video-wrap::before {
-    content: "";
-    position: absolute;
-    inset: 4px;
-    border: 1px solid rgba(184, 149, 90, 0.45);
-    pointer-events: none;
-    z-index: 1;
-}
+/* FULL VIDEO - NO CROPPING */
 
 .event-video-wrap video {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: var(--cream-2);
-    border: none;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1.3rem;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-warm);
+    position: relative;
+    background: #1a0d08;
+    transition: none;
 }
 
-/* BOTTOM ORNAMENT */
+/* ROYAL GOLD INNER FRAME */
 
-.invite-bottom-ornament {
-    margin-top: 65px;
-    text-align: center;
-    color: var(--gold);
-    font-family: Georgia, serif;
-    font-size: 13px;
-    font-style: italic;
-    letter-spacing: 1.5px;
+.event-video-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(184, 149, 90, 0.45);
+    border-radius: 1.4rem;
+    pointer-events: none;
+    z-index: 1;
 }
 
-/* TABLET */
+/* ROYAL VIDEO CORNERS */
 
-@media (max-width: 768px) {
-    .invite-section {
-        padding: 65px 16px;
-    }
+.video-corner {
+    position: absolute;
+    z-index: 2;
+    color: var(--gold-light);
+    font-size: 19px;
+    line-height: 1;
+    pointer-events: none;
+}
 
-    .invite-card {
-        padding: 55px 25px;
-    }
+.video-corner-tl {
+    top: 10px;
+    left: 11px;
+}
 
-    .invite-events {
-        gap: 45px 20px;
+.video-corner-tr {
+    top: 10px;
+    right: 11px;
+    transform: rotate(90deg);
+}
+
+.video-corner-bl {
+    bottom: 10px;
+    left: 11px;
+    transform: rotate(-90deg);
+}
+
+.video-corner-br {
+    bottom: 10px;
+    right: 11px;
+    transform: rotate(180deg);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 600px) {
+    .event-block {
+        max-width: 100%;
+        margin-bottom: 3rem;
     }
 
     .event-title {
         font-size: 2.5rem;
     }
-}
 
-/* MOBILE */
-
-@media (max-width: 600px) {
-    .invite-section {
-        padding: 45px 12px;
-    }
-
-    .invite-card {
-        padding: 45px 17px;
-        outline-offset: -6px;
-    }
-
-    .invite-heading {
-        margin-bottom: 45px;
-    }
-
-    .section-label {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-    }
-
-    .invite-main-title {
-        font-size: 3rem;
-    }
-
-    .invite-events {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .event-block:last-child {
-        grid-column: auto;
-        width: 100%;
-    }
-
-    .event-title {
-        font-size: 2.6rem;
-    }
-
-    .event-subtitle {
-        font-size: 11px;
-    }
-
-    .event-video-wrap {
+    .event-video-wrap.unlocked {
         padding: 5px;
+        border-radius: 1.3rem;
     }
 
-    .invite-bottom-ornament {
-        margin-top: 45px;
-        font-size: 11px;
-        letter-spacing: 0.5px;
-    }
-}
-
-@media (max-width: 360px) {
-    .invite-card {
-        padding-left: 13px;
-        padding-right: 13px;
+    .event-video-wrap video {
+        border-radius: 1rem;
     }
 
-    .invite-main-title {
-        font-size: 2.6rem;
+    .event-video-wrap::after {
+        border-radius: 1rem;
     }
 
-    .event-title {
-        font-size: 2.3rem;
+    .video-corner {
+        font-size: 15px;
     }
 }
