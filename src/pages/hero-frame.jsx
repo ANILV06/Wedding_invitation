@@ -12,8 +12,8 @@ function Hero() {
             </p>
 
       <div className="couple-block">
-                <span className="couple-name shimmer-gold">Miss. Yashaswini S</span>
-                <p className="family-line">Late Smt. Saraswathi &amp; Sri Subramani R.G</p>
+                <span className="couple-name shimmer-gold">Miss. Kavya B.V</span>
+                <p className="family-line">Smt. Jyothilakshmi  &amp; Sri Venkataraju B.V.</p>
             </div>
       <div class="ampersand-wrap">
                 <div class="ampersand-line"></div>
@@ -22,8 +22,8 @@ function Hero() {
             </div>
 
         <div className="couple-block">
-                <span className="couple-name shimmer-gold">Mr Achutha R</span>
-                <p className="family-line">Late Smt. B Padma &amp; Sri H.M Ravi</p>
+                <span className="couple-name shimmer-gold">Mr. Madhusudhan T.L. </span>
+                <p className="family-line">Smt. Nirmala &  &amp; Sri. Lakshminarayana T.M.</p>
             </div>
         
         <div class="scroll-cue">
