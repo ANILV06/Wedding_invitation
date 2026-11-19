@@ -22,7 +22,7 @@ function App() {
   const [audioNeedsTap, setAudioNeedsTap] = useState(false);
   const [entryStarted, setEntryStarted] = useState(false);
 
-  // Start entry video after visitor interaction
+  // Start opening video after visitor interaction
   const handleClick = async () => {
     const vid = videoRef.current;
 
@@ -31,16 +31,21 @@ function App() {
     setEntryStarted(true);
 
     try {
-      vid.muted = false;
+      // Muted playback is more reliable on iPhone Safari
+      vid.muted = true;
+      vid.playsInline = true;
+
       await vid.play();
+
     } catch (error) {
-      console.log("Entry video playback failed:", error);
-      setShowMain(true);
-      setAudioNeedsTap(true);
+      console.error("Opening video playback failed:", error);
+
+      // Allow visitor to try again
+      setEntryStarted(false);
     }
   };
 
-  // When entry video finishes
+  // When opening video finishes
   const handleVideoEnd = async () => {
     setShowMain(true);
 
@@ -52,6 +57,7 @@ function App() {
       await audio.play();
       setIsPlaying(true);
       setAudioNeedsTap(false);
+
     } catch (error) {
       console.log("Audio autoplay blocked:", error);
       setIsPlaying(false);
@@ -59,8 +65,17 @@ function App() {
     }
   };
 
-  // If entry video fails
+  // If opening video has a loading or decoding error
   const handleVideoError = () => {
+    const vid = videoRef.current;
+
+    console.error(
+      "Opening video error:",
+      vid?.error?.code,
+      vid?.error?.message
+    );
+
+    // Fallback to the main website
     setShowMain(true);
     setAudioNeedsTap(true);
   };
@@ -81,6 +96,7 @@ function App() {
       await audio.play();
       setIsPlaying(true);
       setAudioNeedsTap(false);
+
     } catch (error) {
       console.log("Audio playback failed:", error);
       setIsPlaying(false);
@@ -154,15 +170,16 @@ function App() {
         >
           <video
             ref={videoRef}
-            playsInline
-            preload="metadata"
-            muted
             className="entry-video"
+            playsInline
+            preload="auto"
+            muted
+            controls={false}
             onEnded={handleVideoEnd}
             onError={handleVideoError}
           >
             <source
-              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795088390/mk_ygr1mj.mp4"
+              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/f_mp4,vc_h264,ac_aac/v1795088390/mk_ygr1mj.mp4"
               type="video/mp4"
             />
           </video>
