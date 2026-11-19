@@ -2,6 +2,9 @@
 import { useRef, useState } from "react";
 import video from "./bg.mp4";
 
+import PetalFall from "./PetalFall";
+import "./PetalFall.css";
+
 import Hero from "./pages/hero-frame";
 import Timer from "./pages/Countdown";
 import Glimps from "./pages/Glimps";
@@ -181,6 +184,9 @@ function App() {
           >
             <source src={video} type="video/mp4" />
           </video>
+
+          {/* FALLING FLOWER PETALS */}
+          <PetalFall />
 
           {/* WEBSITE SECTIONS */}
           <div className="App">
