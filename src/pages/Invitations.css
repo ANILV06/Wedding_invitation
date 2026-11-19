@@ -1,6 +1,5 @@
 
-
-.ornament-line svg{
+.ornament-line svg {
     color: var(--gold);
 }
 
@@ -16,27 +15,47 @@
 .event-title {
     font-family: 'Great Vibes', cursive;
     font-size: 2.8rem;
-    color: var(--terracotta);
+    color: var(--terra-dark);
     margin-bottom: 0.15rem;
 }
 
 .event-video-wrap.unlocked {
     max-height: 1000px;
 }
+
 .event-video-wrap video {
     border-radius: 1.5rem;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid var(--gold-light);
     box-shadow: var(--shadow-warm);
     position: relative;
-    background: #1a0d08;
+    background: #3F3931;
     max-height: 800px;
     transition: max-height 1.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
-
 
 .event-block {
     max-width: 420px;
     margin: 0 auto 4rem;
 }
 
+/* Mobile responsive styling */
+@media (max-width: 768px) {
+    .event-subtitle {
+        font-size: 15px;
+        letter-spacing: 0.2em;
+        margin-bottom: 1rem;
+    }
+
+    .event-title {
+        font-size: 2.2rem;
+    }
+
+    .event-video-wrap video {
+        border-radius: 1rem;
+    }
+
+    .event-block {
+        margin-bottom: 2.5rem;
+    }
+}
