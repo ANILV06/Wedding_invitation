@@ -1,3 +1,4 @@
+
 {
   "name": "cloud-storage",
   "version": "0.1.0",
@@ -30,7 +31,9 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "ios_saf >= 15",
+      "safari >= 15"
     ],
     "development": [
       "last 1 chrome version",
