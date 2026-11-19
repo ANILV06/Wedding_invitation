@@ -13,15 +13,15 @@ return(
             </div>
 
             <div className="venue-card reveal reveal-delay-2 revealed">
-            <img className="venue-img" src="https://res.cloudinary.com/dwtzcpmzo/image/upload/v1775896723/venue_zhnz6b.png" alt="convention Hall" type='o' />
+            <img className="venue-img" src="https://res.cloudinary.com/dwtzcpmzo/image/upload/v1795072171/copy_of_copy_of_anwiy9tdthdurl7qb7ks-x8halg0mcfacxtktjd9qyvhwcmfwvduez-p-eb2tpmtoxcilqynyrbvcoiqt5pk-yt0gcfh_tpg2lditaxor8c201ttbco8-6jwehb7zrtrbmi44fhfp8ib_s680-w680-h510-rw_tzso1a.webp" alt="convention Hall" type='o' />
             <div className="venue-info text-center">
-                <h3 className="venue-name">Chowdeshwari Devi Kalyanamantapa</h3>
+                <h3 className="venue-name">Kollapuradamma Samudaya Bhavana</h3>
                 <p className="venue-address">
-                    Tank Bund Rd, Chowdeshwari Layout,<code><br /></code> old town, Yelahanka <code><br /></code>Bengaluru, Karnataka 
+                    Hanumanthapura, Tumakuru<code><br /></code> (near Kuvempunagar and Hanumanthapura bus stand)<code><br /></code>Karnataka 572103
                     
                 </p>
                
-                <a className="directions-btn" href="https://maps.app.goo.gl/f4VV5kk7cBgNVnrd8" target="_blank" rel="noreferrer">Get Directions</a>
+                <a className="directions-btn" href="https://maps.app.goo.gl/gaFaGxxtyEVu1EuP6" target="_blank" rel="noreferrer">Get Directions</a>
             </div>
         </div>
         </div>
@@ -30,3 +30,4 @@ return(
 }
 
 export default Venue;
+  
