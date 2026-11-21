@@ -46,7 +46,7 @@ function Hero() {
         <div className="couple-block">
           <span className="couple-name shimmer-gold">Mr. Madhusudan T.L.</span>
           <p className="family-line">
-            Smt. Nirmala &amp; Sri. Lakshaman murthy T.M.
+            Smt. Nirmala &amp; Sri. Lakshman murthy T.M.
           </p>
         </div>
 
