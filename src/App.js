@@ -34,6 +34,7 @@ function App() {
     setEntryStarted(true);
 
     try {
+      vid.defaultMuted = true;
       vid.muted = true;
       vid.playsInline = true;
 
@@ -63,7 +64,7 @@ function App() {
     }
   };
 
-  // Video error: keep the landing screen clean, without an error message
+  // Keep landing screen clean if video fails
   const handleVideoError = () => {
     console.error("Opening video could not be loaded.");
     setEntryStarted(false);
@@ -94,7 +95,6 @@ function App() {
 
   return (
     <section>
-
       {/* BACKGROUND MUSIC */}
       <audio ref={audioRef} loop preload="none">
         <source
@@ -112,7 +112,12 @@ function App() {
           type="button"
         >
           {isPlaying ? (
-            <svg fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              viewBox="0 0 24 24"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -120,7 +125,12 @@ function App() {
               />
             </svg>
           ) : (
-            <svg fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+            <svg
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              viewBox="0 0 24 24"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -150,9 +160,12 @@ function App() {
             ref={videoRef}
             className="entry-video"
             playsInline
+            webkit-playsinline="true"
             muted
+            defaultMuted
             preload="auto"
             controls={false}
+            disablePictureInPicture
             onEnded={handleVideoEnd}
             onError={handleVideoError}
           >
@@ -164,7 +177,6 @@ function App() {
       {/* MAIN WEDDING WEBSITE */}
       {showMain && (
         <section className="main-container">
-
           {/* BACKGROUND VIDEO */}
           <video
             className="bg-video"
@@ -201,10 +213,8 @@ function App() {
               Tap to play music ♫
             </button>
           )}
-
         </section>
       )}
-
     </section>
   );
 }
