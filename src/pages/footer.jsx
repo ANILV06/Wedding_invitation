@@ -46,7 +46,7 @@ function Footer() {
             <div className="footer-message-ornament">✧</div>
 
             <div className="footer-kids">
-              <strong>Vinod Kumar</strong>
+              <strong>Vinod Kumar</strong> <br></br>
               <em>
                 "Nanna Preethiya Thangiya Maduvege Thapade Banni...."
               </em>
