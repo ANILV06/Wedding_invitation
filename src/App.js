@@ -2,9 +2,6 @@
 import { useRef, useState } from "react";
 import video from "./bg.mp4";
 
-import PetalFall from "./PetalFall";
-import "./PetalFall.css";
-
 import Hero from "./pages/hero-frame";
 import Timer from "./pages/Countdown";
 import Glimps from "./pages/Glimps";
@@ -12,9 +9,6 @@ import Venue from "./pages/venue";
 import Invite from "./pages/Invitations";
 import Form from "./pages/form";
 import Footer from "./pages/footer";
-
-const OPENING_VIDEO =
-  "https://res.cloudinary.com/dwtzcpmzo/video/upload/f_mp4,vc_h264,ac_aac/v1795088390/mk_ygr1mj.mp4";
 
 function App() {
   const videoRef = useRef(null);
@@ -25,7 +19,7 @@ function App() {
   const [audioNeedsTap, setAudioNeedsTap] = useState(false);
   const [entryStarted, setEntryStarted] = useState(false);
 
-  // Play opening video when visitor taps the landing screen
+  // Start entry video after user interaction
   const handleClick = async () => {
     const vid = videoRef.current;
 
@@ -34,18 +28,15 @@ function App() {
     setEntryStarted(true);
 
     try {
-      vid.defaultMuted = true;
-      vid.muted = true;
-      vid.playsInline = true;
-
+      vid.muted = false;
       await vid.play();
     } catch (error) {
-      console.error("Opening video playback failed:", error);
-      setEntryStarted(false);
+      console.log("Entry video playback failed:", error);
+      setShowMain(true);
     }
   };
 
-  // Open main website after opening video finishes
+  // When entry video finishes
   const handleVideoEnd = async () => {
     setShowMain(true);
 
@@ -64,13 +55,13 @@ function App() {
     }
   };
 
-  // Keep landing screen clean if video fails
+  // If entry video fails, allow invitation to open
   const handleVideoError = () => {
-    console.error("Opening video could not be loaded.");
-    setEntryStarted(false);
+    setShowMain(true);
+    setAudioNeedsTap(true);
   };
 
-  // Background music control
+  // Audio button
   const toggleAudio = async () => {
     const audio = audioRef.current;
 
@@ -95,7 +86,8 @@ function App() {
 
   return (
     <section>
-      {/* BACKGROUND MUSIC */}
+
+      {/* AUDIO */}
       <audio ref={audioRef} loop preload="none">
         <source
           src="https://pub-1953a6673e864f3488c645252f75de98.r2.dev/Ashish%20%26%20Ayushi/Jashn-E-Bahaaraa%20(Instrumental%20-%20Flute)%20%5B-2w18bd-ZQ4%5D.mp3"
@@ -103,7 +95,7 @@ function App() {
         />
       </audio>
 
-      {/* MUSIC CONTROL */}
+      {/* AUDIO BUTTON */}
       {showMain && (
         <button
           id="audio-btn"
@@ -141,58 +133,53 @@ function App() {
         </button>
       )}
 
-      {/* OPENING LANDING VIDEO */}
+      {/* ENTRY VIDEO */}
       {!showMain && (
         <div
           id="entry-gate"
           onClick={handleClick}
           role="button"
           tabIndex={0}
-          aria-label="Tap to play wedding invitation"
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") {
-              e.preventDefault();
               handleClick();
             }
           }}
         >
           <video
             ref={videoRef}
-            className="entry-video"
             playsInline
             webkit-playsinline="true"
+            preload="metadata"
             muted
-            defaultMuted
-            preload="auto"
-            controls={false}
-            disablePictureInPicture
+            className="entry-video"
             onEnded={handleVideoEnd}
             onError={handleVideoError}
           >
-            <source src={OPENING_VIDEO} type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1776072706/AY_fdhr6h.mp4"
+              type="video/mp4"
+            />
           </video>
         </div>
       )}
 
-      {/* MAIN WEDDING WEBSITE */}
+      {/* MAIN WEBSITE */}
       {showMain && (
         <section className="main-container">
-          {/* BACKGROUND VIDEO */}
+
           <video
             className="bg-video"
             autoPlay
             loop
             muted
             playsInline
+            webkit-playsinline="true"
             preload="metadata"
           >
             <source src={video} type="video/mp4" />
           </video>
 
-          {/* FALLING PETALS */}
-          <PetalFall />
-
-          {/* WEBSITE SECTIONS */}
           <div className="App">
             <div className="content-1"><Hero /></div>
             <div className="content-2"><Timer /></div>
@@ -203,18 +190,20 @@ function App() {
             <div className="content-7"><Footer /></div>
           </div>
 
-          {/* MUSIC FALLBACK */}
+          {/* Show only if iPhone blocks automatic music */}
           {audioNeedsTap && (
             <button
               type="button"
               onClick={toggleAudio}
               className="music-fallback"
             >
-              Tap to play music ♫
+              Tap to play music
             </button>
           )}
+
         </section>
       )}
+
     </section>
   );
 }
