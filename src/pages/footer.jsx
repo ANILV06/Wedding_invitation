@@ -15,7 +15,7 @@ function Footer() {
 
         <div className="footer-title-wrap">
           <span className="footer-name">
-            Kavya B.V <span className="footer-title-heart">&amp;</span> Madhusudana T.L
+            Kavya B.V <span className="footer-title-heart">&amp;</span> Madhusudan T.L
           </span>
 
           <div className="footer-heart-divider">
@@ -38,7 +38,7 @@ function Footer() {
 
             <ul className="footer-list">
               <li>Smt. Jyothilakshmi &amp; Sri Venkataraju B.V.</li>
-              <li>Smt. Nirmala &amp; Sri Lakshmimurthy T.M.</li>
+              <li>Smt. Nirmala &amp; Sri Lakshman murthy T.M.</li>
             </ul>
           </div>
 
