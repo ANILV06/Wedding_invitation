@@ -1,11 +1,31 @@
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
+  min-width: 320px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #1a0d08;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }
 
 code {
@@ -14,33 +34,33 @@ code {
 }
 
 :root {
-    /* Elegant Ivory and Sage Wedding Theme */
-    --cream: #F8F3E9;
-    --cream-2: #F1E9DC;
+  /* Elegant Ivory and Sage Wedding Theme */
+  --cream: #F8F3E9;
+  --cream-2: #F1E9DC;
 
-    /* Sage Green */
-    --terracotta: #74816A;
-    --terra-dark: #526148;
-    --terra-light: #A5AD91;
+  /* Sage Green */
+  --terracotta: #74816A;
+  --terra-dark: #526148;
+  --terra-light: #A5AD91;
 
-    /* Champagne Gold */
-    --gold: #B8955A;
-    --gold-light: #D8BD8A;
-    --gold-pale: #F0E4CC;
+  /* Champagne Gold */
+  --gold: #B8955A;
+  --gold-light: #D8BD8A;
+  --gold-pale: #F0E4CC;
 
-    /* Dusty Rose */
-    --burgundy: #A87578;
+  /* Dusty Rose */
+  --burgundy: #A87578;
 
-    /* Typography */
-    --text-dark: #3F3931;
-    --text-mid: #6F675B;
-    --text-light: #958779;
+  /* Typography */
+  --text-dark: #3F3931;
+  --text-mid: #6F675B;
+  --text-light: #958779;
 
-    /* Borders and surfaces */
-    --border: #E5DCCB;
-    --white: #FFFCF7;
+  /* Borders and surfaces */
+  --border: #E5DCCB;
+  --white: #FFFCF7;
 
-    /* Shadows */
-    --shadow-warm: 0 20px 60px -10px rgba(63, 57, 49, 0.12);
-    --shadow-gold: 0 4px 24px rgba(184, 149, 90, 0.18);
+  /* Shadows */
+  --shadow-warm: 0 20px 60px -10px rgba(63, 57, 49, 0.12);
+  --shadow-gold: 0 4px 24px rgba(184, 149, 90, 0.18);
 }
