@@ -19,7 +19,7 @@ export default function Form() {
     );
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("", {
         method: "POST",
         body: formData
       });
