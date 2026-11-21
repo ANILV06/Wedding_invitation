@@ -95,7 +95,7 @@ function App() {
             onError={handleVideoError}
           >
             <source
-              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1776072706/AY_fdhr6h.mp4"
+              src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795088390/mk_ygr1mj.mp4"
               type="video/mp4"
             />
           </video>
