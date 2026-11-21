@@ -25,7 +25,7 @@ function Timer() {
       </p>
 
       <p className="countdown-date">
-        Sunday · 28th November 2026
+        Saturday · 28th November 2026
       </p>
 
       <div className="countdown-display">
