@@ -516,3 +516,57 @@ body,
 }
 
 }
+
+/* ================= IPHONE-SAFE INTRO ACTION ================= */
+#entry-gate {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.entry-open-button {
+    position: absolute;
+    left: 50%;
+    bottom: max(28px, env(safe-area-inset-bottom));
+    z-index: 2;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - 40px);
+    padding: 14px 24px;
+    border: 1px solid var(--gold-light);
+    border-radius: 999px;
+    background: rgba(82, 97, 72, 0.96);
+    color: #fff;
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.entry-open-button:focus-visible {
+    outline: 2px solid var(--gold-light);
+    outline-offset: 4px;
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+    .entry-open-button {
+        bottom: calc(24px + env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 600px) {
+    #entry-gate .entry-video {
+        object-fit: contain;
+    }
+
+    .entry-open-button {
+        font-size: 11px;
+        padding: 13px 20px;
+        letter-spacing: 1px;
+    }
+}
