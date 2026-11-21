@@ -55,7 +55,7 @@ function Invite(){
                     <span className="video-corner video-corner-tl">❧</span>
                     <span className="video-corner video-corner-tr">❧</span>
                     <video autoPlay muted loop playsInline>
-                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795258881/Red_Yellow_and_Green_Traditional_Diwali_Dinner_Party_Invitation_h9iwgf.mp4" />
+                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795253741/Pink_And_Gold_Elegant_South_Indian_Wedding_Invitation_Mobile_Video_z6ubbt.mp4" />
                     </video>
                     <span className="video-corner video-corner-bl">❧</span>
                     <span className="video-corner video-corner-br">❧</span>
@@ -76,7 +76,7 @@ function Invite(){
                     <span className="video-corner video-corner-tl">❧</span>
                     <span className="video-corner video-corner-tr">❧</span>
                     <video autoPlay muted loop playsInline>
-                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795076460/beegara_oota_snfwn9.mp4" type="video/mp4" />
+                        <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795259772/Red_Yellow_and_Green_Traditional_Diwali_Dinner_Party_Invitation_1_du2jkn.mp4" />
                     </video>
                     <span className="video-corner video-corner-bl">❧</span>
                     <span className="video-corner video-corner-br">❧</span>
