@@ -25,7 +25,7 @@ export default function Form() {
 
     formData.append(
       "subject",
-      "Wedding RSVP - Pushpa & Yogendra"
+      "Wedding RSVP - Kavya & Madhusudan"
     );
 
     try {
