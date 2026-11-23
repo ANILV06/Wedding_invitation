@@ -79,7 +79,21 @@ function Invite(){
                         <source src="https://res.cloudinary.com/dwtzcpmzo/video/upload/v1795259772/Red_Yellow_and_Green_Traditional_Diwali_Dinner_Party_Invitation_1_du2jkn.mp4" />
                     </video>
                     <span className="video-corner video-corner-bl">❧</span>
-                    <span className="video-corner video-corner-br">❧</span>
+                    
+                    <div className="venue-divider">
+                            <span></span>
+                            ❦
+                            <span></span>
+                        </div>
+
+                        <a
+                            className="directions-btn"
+                            href="https://maps.app.goo.gl/BM1K5dqeyocT3oYR6"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Get Directions <span>↗</span>
+                        </a>
                 </div>
             </div>
 
